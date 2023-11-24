@@ -15,6 +15,8 @@ namespace Users.API.Models.DTO
         public string Hobby { get; set; }
         public DateTime RegisterDate { get; set; } = DateTime.Now;
         public bool isVisible { get; set; }
+        public string ProfileImageUrl { get; set; }
+
         public Guid[] Skillset { get; set; }
 
     }

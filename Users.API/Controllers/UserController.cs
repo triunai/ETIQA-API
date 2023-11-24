@@ -45,6 +45,7 @@ namespace Users.API.Controllers
                     Hobby = request.Hobby,
                     RegisterDate = request.RegisterDate,
                     isVisible = request.isVisible,
+                    ProfileImageUrl = request.ProfileImageUrl,
 
                     Skillset = new List<Skillset>()
                 };
@@ -72,6 +73,7 @@ namespace Users.API.Controllers
                         Hobby = request.Hobby,
                         RegisterDate = request.RegisterDate,
                         isVisible = request.isVisible,
+                        ProfileImageUrl = request.ProfileImageUrl,
                         Skillset = user.Skillset.Select(x => new SkillsetDTO
                         {
                             SkillsetId = x.SkillsetId,
@@ -177,6 +179,7 @@ namespace Users.API.Controllers
                     Hobby = existingUser.Hobby,
                     RegisterDate = existingUser.RegisterDate,
                     isVisible = existingUser.isVisible,
+                    ProfileImageUrl = existingUser.ProfileImageUrl,
 
                     // skillset is needs to be mapped to its own DTO
                     Skillset = existingUser.Skillset.Select(x => new SkillsetDTO
@@ -227,6 +230,7 @@ namespace Users.API.Controllers
                     Hobby = request.Hobby,
                     RegisterDate = request.RegisterDate,
                     isVisible = request.isVisible,
+                    ProfileImageUrl = request.ProfileImageUrl,
                     Skillset = new List<Skillset>(),
                 };
 
@@ -255,6 +259,7 @@ namespace Users.API.Controllers
                     Hobby = newUser.Hobby,
                     RegisterDate = newUser.RegisterDate,
                     isVisible = newUser.isVisible,
+                    ProfileImageUrl = newUser.ProfileImageUrl,
                     Skillset = newUser.Skillset.Select(x => new SkillsetDTO
                     {
                         SkillsetId = x.SkillsetId,
@@ -302,6 +307,7 @@ namespace Users.API.Controllers
                     Hobby = delUser.Hobby,
                     RegisterDate = delUser.RegisterDate,
                     isVisible = delUser.isVisible,
+                    ProfileImageUrl = delUser.ProfileImageUrl,
 
                     // skillset is needs to be mapped to its own DTO
                     Skillset = delUser.Skillset.Select(x => new SkillsetDTO
@@ -311,9 +317,10 @@ namespace Users.API.Controllers
                     }).ToList(),
                 };
 
-                return Ok("Deleted succesffuly "+response); // <--- CHANGE THIS TO 204 NOCONTENT LATER
+                return Ok(new { message = "Deleted successfully", user = response });
+                // <--- CHANGE THIS TO 204 NOCONTENT LATER
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 // Log the exception (if logging is set up)
                 // _logger.LogError(ex, "Error deleting user with ID: {Id}", id);

@@ -186,7 +186,7 @@ namespace Users.API.Controllers
 
         // PUT: https://localhost:7044/api/skillset/{id}
         [HttpPut("{id:guid}")]
-        public async Task<IActionResult> UpdateSkillset(Guid id, [FromBody] UpdateSkillsetRequestDTO request)
+        public async Task<IActionResult> UpdateSkillset(Guid id,[FromBody] UpdateSkillsetRequestDTO request)
         {
             // Check if the provided ID is valid
             if (id == Guid.Empty)

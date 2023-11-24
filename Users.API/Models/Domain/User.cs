@@ -16,6 +16,8 @@
         public DateTime RegisterDate { get; set; } = DateTime.Now;
         public bool isVisible { get; set; }
 
+        public string ProfileImageUrl { get; set; }
+
         // many to many begins here
         public ICollection<Skillset> Skillset { get; set; }
 
