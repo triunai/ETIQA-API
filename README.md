@@ -5,17 +5,20 @@ Welcome to the CDN Freelancer Directory API! This RESTful API is a pivotal compo
 
 ## ✨ Features
 
-### 🧑‍💼 User Management
-- **Create Users**: Register new freelancers with comprehensive details.
-- **Update Users**: Modify profiles to keep information current.
-- **Delete Users**: Remove profiles as needed.
-- **Get Users**: Access a complete list or specific user details.
+
+### 🧑‍💼 User Management (note the base url, set it to whatever you may like)
+- **Create Users (POST)**: `http://localhost:5000/api/users`
+- **Update Users (PUT)**: `http://localhost:5000/api/users/{id}`
+- **Delete Users (DELETE)**: `http://localhost:5000/api/users/{id}`
+- **Get Users (GET)**: `http://localhost:5000/api/users`
+- **Get User by ID (GET)**: `http://localhost:5000/api/users/{id}`
 
 ### 🔧 Skillset Management
-- **Add Skillsets**: Introduce new skills to the database.
-- **Update Skillsets**: Keep skill information relevant.
-- **Delete Skillsets**: Remove outdated skills.
-- **Get Skillsets**: Retrieve detailed skillset information.
+- **Add Skillsets (POST)**: `http://localhost:5000/api/skillsets`
+- **Update Skillsets (PUT)**: `http://localhost:5000/api/skillsets/{id}`
+- **Delete Skillsets (DELETE)**: `http://localhost:5000/api/skillsets/{id}`
+- **Get Skillsets (GET)**: `http://localhost:5000/api/skillsets`
+- **Get Skillset by ID (GET)**: `http://localhost:5000/api/skillsets/{id}`
 
 ## 🛠️ Technologies Used
 - **ASP.NET Core Web API**: For robust backend functionality.
