@@ -3,8 +3,51 @@
 ## 🌟 Introduction
 Welcome to the CDN Freelancer Directory API! This RESTful API is a pivotal component of the Complete Developer Network, designed to streamline the management of a dynamic directory of freelancers. It's not just a project; it's a tool that empowers users to efficiently handle user data and skillsets, fostering a vibrant and interconnected freelance community.
 
-## ✨ Features
+## 🌟 Features
+- **User Management**: Create, update, delete, and retrieve user profiles.
+- **Skillset Management**: Manage skillsets associated with users.
+- **Image Management**: Upload and retrieve profile images.
 
+## 📡 API Endpoints
+
+### 🖼️ ImagesController
+- **Upload Image**
+  - `POST /api/images/upload`
+  - Description: Uploads a new profile image.
+  - Request/Response Format: ...
+  - URL: `http://<your-domain>/api/images/upload`
+- **Get All Images**
+  - `GET /api/images`
+  - Description: Retrieves all uploaded images.
+  - Response Format: ...
+  - URL: `http://<your-domain>/api/images`
+
+### 🛠️ SkillsetController
+- **Create Skillset**
+  - `POST /api/skillsets`
+  - Description: Creates a new skillset.
+  - Request/Response Format: ...
+  - URL: `http://<your-domain>/api/skillsets`
+- **Update Skillset**
+  - `PUT /api/skillsets/{id}`
+  - Description: Updates an existing skillset.
+  - Request/Response Format: ...
+  - URL: `http://<your-domain>/api/skillsets/{id}`
+- **Delete Skillset**
+  - `DELETE /api/skillsets/{id}`
+  - Description: Deletes a skillset.
+  - Request Format: ...
+  - URL: `http://<your-domain>/api/skillsets/{id}`
+- **Get Skillset**
+  - `GET /api/skillsets/{id}`
+  - Description: Retrieves a specific skillset.
+  - Response Format: ...
+  - URL: `http://<your-domain>/api/skillsets/{id}`
+- **Get All Skillsets**
+  - `GET /api/skillsets`
+  - Description: Retrieves all skillsets.
+  - Response Format: ...
+  - URL: `http://<your-domain>/api/skillsets`
 
 ### 🧑‍💼 User Management (note the base url, set it to whatever you may like)
 - **Create Users (POST)**: `http://localhost:5000/api/users`
@@ -13,12 +56,15 @@ Welcome to the CDN Freelancer Directory API! This RESTful API is a pivotal compo
 - **Get Users (GET)**: `http://localhost:5000/api/users`
 - **Get User by ID (GET)**: `http://localhost:5000/api/users/{id}`
 
-### 🔧 Skillset Management
-- **Add Skillsets (POST)**: `http://localhost:5000/api/skillsets`
-- **Update Skillsets (PUT)**: `http://localhost:5000/api/skillsets/{id}`
-- **Delete Skillsets (DELETE)**: `http://localhost:5000/api/skillsets/{id}`
-- **Get Skillsets (GET)**: `http://localhost:5000/api/skillsets`
-- **Get Skillset by ID (GET)**: `http://localhost:5000/api/skillsets/{id}`
+## 📊 Models and DTOs
+- **User**: Represents a user in the system.
+- **Skillset**: Represents a skillset associated with a user.
+- **ProfileImage**: Represents a user's profile image.
+- **CreateSkillsetRequestDTO**: Data structure for creating a skillset.
+- **CreateUserRequestDTO**: Data structure for creating a user.
+- **ProfileImageDTO**: Data structure for profile images.
+- **SkillsetDTO**: Data structure for skillsets.
+
 
 ## 🛠️ Technologies Used
 - **ASP.NET Core Web API**: For robust backend functionality.
