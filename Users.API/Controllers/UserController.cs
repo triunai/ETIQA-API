@@ -221,6 +221,30 @@ namespace Users.API.Controllers
 
             try
             {
+                var existingUser = await userRepository.GetUserById(id);
+                if (existingUser == null)
+                {
+                    return NotFound("User not found.");
+                }
+                existingUser.Username = request.Username;
+                existingUser.Email = request.Email;
+                existingUser.PhoneNumber = request.PhoneNumber;
+                existingUser.Hobby = request.Hobby;
+                existingUser.RegisterDate = request.RegisterDate;
+                existingUser.isVisible = request.isVisible;
+                existingUser.ProfileImageUrl = request.ProfileImageUrl;
+
+                // Update skillsets
+                existingUser.Skillset.Clear(); // Clear existing skillsets
+                foreach (var skillsetId in request.Skillset)
+                {
+                    var skillset = await skillsetRepository.GetSkillsetById(skillsetId);
+                    if (skillset != null)
+                    {
+                        existingUser.Skillset.Add(skillset);
+                    }
+                }
+
                 var newUser = new User
                 {
                     UserId = id,
@@ -244,7 +268,7 @@ namespace Users.API.Controllers
                     newUser.Skillset.Add(existingSkillset);
                 }
 
-                var updatedUser = await userRepository.UpdateAsync(newUser);
+                var updatedUser = await userRepository.UpdateAsync(existingUser);
                 if (updatedUser == null)
                 {
                     return NotFound("Could not update user. The user may not exist.");

@@ -10,6 +10,8 @@ namespace Users.API.Data
 
         public DbSet<User> User { get; set; }
         public DbSet<Skillset> Skillset { get; set; }
+
+        public DbSet<ProfileImage> ProfileImages { get; set; }
         // add skillset here if you need it
     }
 }
