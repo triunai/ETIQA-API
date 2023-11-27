@@ -18,5 +18,7 @@ namespace Users.API.Repositories.Interface
         Task<User?> UpdateAsync(User newUser);
 
         Task<User?> DeleteAsync(Guid Id);
+
+        Task<User?> GetByEmailAsync(string email);
     }
 }

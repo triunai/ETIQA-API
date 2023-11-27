@@ -38,7 +38,7 @@ namespace Users.API.Repositories.Implementation
         {
             var matchingUserFromDb = await dbContext.User.Include(x => x.Skillset).FirstOrDefaultAsync(data => data.UserId == newUser.UserId);
             if (matchingUserFromDb != null)
-            {   
+            {
 
                 // basically we take the id we wanna change, and then set its new value using the current values attribute
                 dbContext.Entry(matchingUserFromDb).CurrentValues.SetValues(newUser);
@@ -74,6 +74,12 @@ namespace Users.API.Repositories.Implementation
             }
 
         }
-    }
 
+        public async Task<User?> GetByEmailAsync(string email)
+        {
+            return await dbContext.User.Include(x => x.Skillset).FirstOrDefaultAsync(x => x.Email == email);
+        }
     }
+}
+
+   

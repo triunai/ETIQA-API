@@ -200,7 +200,45 @@ namespace Users.API.Controllers
             }
             
         }
-        // PUT: https://localhost:xxxx:/api/user/{id}
+
+        // GET: https://localhost:xxxx:/api/user/{email}
+        [HttpGet("{email}")]
+        public async Task<IActionResult> GetUserByEmail(string email)
+        {
+            // Check if the provided ID is valid
+            if (email == string.Empty)
+            {
+                return BadRequest("A valid email must be provided.");
+            }
+            try
+            {
+                var user = await userRepository.GetByEmailAsync(email);
+                var response = new UserDTO
+                {
+                    UserId = user.UserId,
+                    Username = user.Username,
+                    Email = user.Email,
+                    PhoneNumber = user.PhoneNumber,
+                    Hobby = user.Hobby,
+                    RegisterDate = user.RegisterDate,
+                    isVisible = user.isVisible,
+                    ProfileImageUrl = user.ProfileImageUrl,
+
+                    // skillset is needs to be mapped to its own DTO
+                    Skillset = user.Skillset.Select(x => new SkillsetDTO
+                    {
+                        SkillsetId = x.SkillsetId,
+                        SkillName = x.SkillName,
+                    }).ToList(),
+                };
+                return Ok(response);
+            }
+            catch(Exception ex)
+            {
+                return StatusCode(500, "An error occurred while processing your request: " + ex.Message);
+            }
+            
+        }
         [HttpPut("{id:guid}")]
         public async Task<IActionResult> UpdateUser(Guid id, [FromBody] UpdateUserRequestDTO request)
         {
